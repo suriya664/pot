@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisan Clay | Pottery Class Studio</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Open+Sans:wght@400;600&family=Caveat:wght@500;700&family=Josefin+Slab:wght@600&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <svg width="40" height="40" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="48" r="12" fill="#6B5444" />
+                    <ellipse cx="32" cy="32" rx="24" ry="6" fill="#C17855" />
+                    <path d="M 20,32 Q 20,18 32,18 Q 44,18 44,32 L 40,32 Q 40,22 32,22 Q 24,22 24,32 Z"
+                        fill="#E8B896" />
+                </svg>
+                <span>Clay Studio</span>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link active">Home 1</a></li>
+                    <li><a href="index-v2.html" class="nav-link">Home 2</a></li>
+                    <li><a href="classes.html" class="nav-link">Classes</a></li>
+                    <li><a href="member-gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="membership.html" class="nav-link">Membership</a></li>
+                    <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <div class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <a href="login.html" class="btn btn-ghost" style="padding: 10px 24px;">Login</a>
+                <a href="workshop-registration.html" class="btn btn-primary" style="padding: 10px 24px;">Book Now</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero-v1"
+            style="position: relative; height: 90vh; display: flex; align-items: center; overflow: hidden; background: radial-gradient(circle at 70% 50%, rgba(193,120,85,0.1) 0%, transparent 50%);">
+            <div id="clay-particles"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
+            </div>
+
+            <div class="container"
+                style="position: relative; z-index: 2; display: flex; align-items: center; gap: 40px;">
+                <div class="hero-content" style="flex: 1;">
+                    <h1 style="font-size: 4.5rem; line-height: 1.1; margin-bottom: 20px;" class="fade-in">
+                        <span
+                            style="font-family: var(--font-handwritten); color: var(--color-primary); display: block;">Shape
+                            Your</span>
+                        Creativity
+                    </h1>
+                    <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 500px; margin-bottom: 35px;"
+                        class="fade-in">
+                        Join our community of potters. Beginner to advanced classes. Open studio hours for all members.
+                    </p>
+                    <div class="hero-btns fade-in" style="display: flex; gap: 20px;">
+                        <a href="classes.html" class="btn btn-primary">Book a Class</a>
+                        <a href="#studio-tour" class="btn btn-ghost">Studio Tour</a>
+                    </div>
+
+                    <div class="hero-stats" style="display: flex; gap: 40px; margin-top: 60px;">
+                        <div class="stat-item fade-in">
+                            <h3 style="color: var(--color-primary); margin-bottom: 5px;">2,400+</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-muted);">Bowls Created</p>
+                        </div>
+                        <div class="stat-item fade-in">
+                            <h3 style="color: var(--color-primary); margin-bottom: 5px;">500+</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-muted);">Happy Potters</p>
+                        </div>
+                        <div class="stat-item fade-in">
+                            <h3 style="color: var(--color-primary); margin-bottom: 5px;">15</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-muted);">Years Teaching</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual fade-in"
+                    style="flex: 1; position: relative; height: 600px; display: flex; justify-content: center; align-items: center;">
+                    <!-- 3D Pottery Wheel Simulation -->
+                    <div class="pottery-wheel-container"
+                        style="position: relative; width: 400px; height: 400pxPerspective: 1000px;">
+                        <div class="pottery-wheel" style="position: absolute; width: 100%; height: 100%;">
+                            <!-- Base of the wheel -->
+                            <div
+                                style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%) rotateX(75deg); width: 350px; height: 350px; background: #6B5444; border-radius: 50%; box-shadow: 0 20px 50px rgba(0,0,0,0.3);">
+                            </div>
+                            <!-- Spinning topper -->
+                            <div style="position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%) rotateX(75deg); width: 300px; height: 300px; background: #8E735B; border-radius: 50%; border: 4px solid #5C4839;"
+                                class="pottery-wheel-spinner"></div>
+                            <!-- Clay being formed -->
+                            <div class="clay-forming"
+                                style="position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%); width: 120px; height: 180px; background: var(--color-accent-1); border-radius: 40% 40% 45% 45%; box-shadow: inset -10px -10px 20px rgba(0,0,0,0.1);">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <svg class="clay-coil-divider" style="position: absolute; bottom: -10px; left: 0; z-index: 3;"
+                viewBox="0 0 1200 60">
+                <path d="M0,30 Q150,10 300,30 T600,30 T900,30 T1200,30" fill="none" stroke="var(--color-primary)"
+                    stroke-width="8" stroke-linecap="round" />
+            </svg>
+        </section>
+
+        <!-- INTERACTIVE CLASS SELECTOR -->
+        <section class="class-selector" style="padding: 100px 0; background: var(--bg-primary);">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 50px;">
+                    <h2 class="reveal-on-scroll">Find Your Level</h2>
+                    <p style="color: var(--text-secondary);">Choose the perfect class for your pottery journey.</p>
+                </div>
+
+                <div class="tabs-container" style="justify-content: center;">
+                    <div class="tab-btn active" onclick="showTab('beginner')">Beginner</div>
+                    <div class="tab-btn" onclick="showTab('intermediate')">Intermediate</div>
+                    <div class="tab-btn" onclick="showTab('advanced')">Advanced</div>
+                    <div class="tab-btn" onclick="showTab('kids')">Kids</div>
+                </div>
+
+                <div id="class-content" class="fade-in">
+                    <!-- Dynamic content will be loaded here -->
+                    <div class="class-details"
+                        style="display: flex; gap: 40px; align-items: center; background: var(--bg-card); padding: 40px; border-radius: 20px; box-shadow: var(--shadow-clay);">
+                        <div style="flex: 1;">
+                            <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=800"
+                                alt="Beginner Class"
+                                style="border-radius: 15px; width: 100%; height: 350px; object-fit: cover;">
+                        </div>
+                        <div style="flex: 1.2;">
+                            <span class="badge badge-terracotta">Featured Class</span>
+                            <h3 style="font-size: 2.5rem; margin: 15px 0;">Wheel Throwing 101</h3>
+                            <p style="margin-bottom: 25px;">Master the fundamentals of centering, pulling, and shaping
+                                clay on the wheel. No experience required.</p>
+                            <ul style="margin-bottom: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                                <li><i class="fas fa-clock"
+                                        style="color: var(--color-primary); margin-right: 10px;"></i> 2.5 Hours</li>
+                                <li><i class="fas fa-tag" style="color: var(--color-primary); margin-right: 10px;"></i>
+                                    $45 / Session</li>
+                                <li><i class="fas fa-calendar"
+                                        style="color: var(--color-primary); margin-right: 10px;"></i> Next: Feb 3rd</li>
+                                <li><i class="fas fa-user-friends"
+                                        style="color: var(--color-primary); margin-right: 10px;"></i> Max 8 Students
+                                </li>
+                            </ul>
+                            <a href="workshop-registration.html" class="btn btn-primary">Register Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORKSHOP CALENDAR PREVIEW -->
+        <section class="calendar-preview" style="padding: 100px 0; background: var(--bg-secondary);">
+            <div class="container" style="display: flex; gap: 60px; align-items: center;">
+                <div style="flex: 1;">
+                    <h2 class="reveal-on-scroll">Workshop Calendar</h2>
+                    <p style="margin: 20px 0 35px;">We host workshops every week. From wheel throwing to glazing
+                        techniques, find a time that works for you.</p>
+                    <div class="legend" style="display: flex; gap: 20px; margin-bottom: 30px;">
+                        <span style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem;"><span
+                                style="width: 12px; height: 12px; border-radius: 50%; background: var(--color-primary);"></span>
+                            Wheel Throwing</span>
+                        <span style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem;"><span
+                                style="width: 12px; height: 12px; border-radius: 50%; background: var(--color-secondary);"></span>
+                            Hand-Building</span>
+                        <span style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem;"><span
+                                style="width: 12px; height: 12px; border-radius: 50%; background: #E8B896;"></span>
+                            Glazing</span>
+                    </div>
+                    <a href="classes.html" class="btn btn-ghost">View Full Calendar</a>
+                </div>
+                <div
+                    style="flex: 1.5; background: var(--bg-card); padding: 30px; border-radius: 20px; box-shadow: var(--shadow-clay);">
+                    <!-- Simple Calendar Mockup -->
+                    <div class="calendar-mock"
+                        style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; text-align: center;">
+                        <div style="font-weight: 700; color: var(--text-muted); font-size: 0.8rem;">MON</div>
+                        <div style="font-weight: 700; color: var(--text-muted); font-size: 0.8rem;">TUE</div>
+                        <div style="font-weight: 700; color: var(--text-muted); font-size: 0.8rem;">WED</div>
+                        <div style="font-weight: 700; color: var(--text-muted); font-size: 0.8rem;">THU</div>
+                        <div style="font-weight: 700; color: var(--text-muted); font-size: 0.8rem;">FRI</div>
+                        <div style="font-weight: 700; color: var(--text-muted); font-size: 0.8rem;">SAT</div>
+                        <div style="font-weight: 700; color: var(--text-muted); font-size: 0.8rem;">SUN</div>
+                        <!-- Dates -->
+                        <div style="padding: 15px; color: #ccc;">26</div>
+                        <div style="padding: 15px; color: #ccc;">27</div>
+                        <div style="padding: 15px; color: #ccc;">28</div>
+                        <div style="padding: 15px; color: #ccc;">29</div>
+                        <div style="padding: 15px; color: #ccc;">30</div>
+                        <div
+                            style="padding: 15px; background: var(--bg-secondary); border-radius: 8px; position: relative;">
+                            1 <span
+                                style="position: absolute; bottom: 5px; left: 50%; transform: translateX(-50%); width: 4px; height: 4px; background: var(--color-primary); border-radius: 50%;"></span>
+                        </div>
+                        <div style="padding: 15px; background: var(--bg-secondary); border-radius: 8px;">2</div>
+                        <div style="padding: 15px;">3</div>
+                        <div style="padding: 15px; background: var(--color-primary); color: #fff; border-radius: 8px;">4
+                        </div>
+                        <div style="padding: 15px;">5</div>
+                        <div style="padding: 15px;">6</div>
+                        <div
+                            style="padding: 15px; background: var(--color-secondary); color: #fff; border-radius: 8px;">
+                            7</div>
+                        <div style="padding: 15px;">8</div>
+                        <div style="padding: 15px;">9</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STUDENT PROJECTS GALLERY -->
+        <section class="featured-gallery" style="padding: 100px 0;">
+            <div class="container">
+                <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 50px;">
+                    <div>
+                        <h2 class="reveal-on-scroll">Member Spotlight</h2>
+                        <p style="color: var(--text-secondary);">See what our community is creating.</p>
+                    </div>
+                    <a href="member-gallery.html" class="nav-link"
+                        style="color: var(--color-primary); font-weight: 700;">View All Projects <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="masonry-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px;">
+                    <!-- Project Sample 1 -->
+                    <div class="card-clay reveal-on-scroll" style="padding: 15px;">
+                        <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=600" alt="Project"
+                            style="width: 100%; border-radius: 12px; margin-bottom: 15px;">
+                        <h4 style="margin: 0;">Speckled Vase</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">by Maria Rodriguez • Wheel Thrown</p>
+                    </div>
+                    <!-- Project Sample 2 -->
+                    <div class="card-clay reveal-on-scroll" style="padding: 15px;">
+                        <img src="https://images.unsplash.com/photo-1610615862459-86c4e0f36c7e?w=600" alt="Project"
+                            style="width: 100%; border-radius: 12px; margin-bottom: 15px;">
+                        <h4 style="margin: 0;">Organic Bowl Set</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">by Sam Taylor • Hand-Built</p>
+                    </div>
+                    <!-- Project Sample 3 -->
+                    <div class="card-clay reveal-on-scroll" style="padding: 15px;">
+                        <img src="https://images.unsplash.com/photo-1610701596061-2ecf227e85b2?w=600" alt="Project"
+                            style="width: 100%; border-radius: 12px; margin-bottom: 15px;">
+                        <h4 style="margin: 0;">Modern Planter</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">by Alex P. • Sculptural</p>
+                    </div>
+                    <!-- Project Sample 4 -->
+                    <div class="card-clay reveal-on-scroll" style="padding: 15px;">
+                        <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600" alt="Project"
+                            style="width: 100%; border-radius: 12px; margin-bottom: 15px;">
+                        <h4 style="margin: 0;">Earthbound Mugs</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">by Jordan W. • Wheel Thrown</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STUDIO AMENITIES -->
+        <section class="amenities" style="padding: 100px 0; background: var(--bg-secondary);">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <h2 class="reveal-on-scroll">Professional Equipment</h2>
+                    <p style="color: var(--text-secondary);">Everything you need to create your masterpiece.</p>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
+                    <div class="amenity-item reveal-on-scroll"
+                        style="text-align: center; padding: 30px; background: var(--bg-card); border-radius: 20px;">
+                        <div style="font-size: 2.5rem; margin-bottom: 15px;">🎨</div>
+                        <h4 style="margin-bottom: 10px;">12 Pottery Wheels</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Brent & Shimpo wheels.</p>
+                    </div>
+                    <div class="amenity-item reveal-on-scroll"
+                        style="text-align: center; padding: 30px; background: var(--bg-card); border-radius: 20px;">
+                        <div style="font-size: 2.5rem; margin-bottom: 15px;">🔥</div>
+                        <h4 style="margin-bottom: 10px;">3 Large Kilns</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Electric & Gas firing options.</p>
+                    </div>
+                    <div class="amenity-item reveal-on-scroll"
+                        style="text-align: center; padding: 30px; background: var(--bg-card); border-radius: 20px;">
+                        <div style="font-size: 2.5rem; margin-bottom: 15px;">🖌️</div>
+                        <h4 style="margin-bottom: 10px;">Glaze Library</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">200+ unique colors & finishes.</p>
+                    </div>
+                    <div class="amenity-item reveal-on-scroll"
+                        style="text-align: center; padding: 30px; background: var(--bg-card); border-radius: 20px;">
+                        <div style="font-size: 2.5rem; margin-bottom: 15px;">🏺</div>
+                        <h4 style="margin-bottom: 10px;">Open Hours</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">24/7 access for Studio Artists.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTRUCTOR SPOTLIGHT -->
+        <section class="instructors-preview" style="padding: 100px 0;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <h2 class="reveal-on-scroll">Meet Your Guides</h2>
+                    <p style="color: var(--text-secondary);">Learn from master potters with years of experience.</p>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                    <!-- Instructor 1 -->
+                    <div class="instructor-card reveal-on-scroll" style="text-align: center;">
+                        <div
+                            style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden; margin: 0 auto 25px; border: 5px solid var(--bg-secondary);">
+                            <img src="https://i.pravatar.cc/300?img=45" alt="Sarah Chen"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3>Sarah Chen</h3>
+                        <p
+                            style="color: var(--color-primary); font-family: var(--font-handwritten); font-size: 1.2rem; margin-bottom: 15px;">
+                            Lead Instructor</p>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary);">"I believe everyone can create
+                            beautiful pottery. It's about finding your flow."</p>
+                    </div>
+                    <!-- Instructor 2 -->
+                    <div class="instructor-card reveal-on-scroll" style="text-align: center;">
+                        <div
+                            style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden; margin: 0 auto 25px; border: 5px solid var(--bg-secondary);">
+                            <img src="https://i.pravatar.cc/300?img=12" alt="Marcus Thompson"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3>Marcus Thompson</h3>
+                        <p
+                            style="color: var(--color-primary); font-family: var(--font-handwritten); font-size: 1.2rem; margin-bottom: 15px;">
+                            Sculpture Specialist</p>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary);">"Clay is a conversation between the
+                            hands and the earth."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MEMBERSHIP TIERS -->
+        <section class="membership-home" style="padding: 100px 0; background: var(--bg-secondary);">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <h2 class="reveal-on-scroll">Join the Community</h2>
+                    <p style="color: var(--text-secondary);">Choose the membership that fits your practice.</p>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+                    <!-- Tier 1 -->
+                    <div class="card-clay reveal-on-scroll" style="background: var(--bg-card);">
+                        <h4
+                            style="font-family: var(--font-handwritten); font-size: 1.5rem; color: var(--color-primary);">
+                            Drop-In</h4>
+                        <div style="font-size: 2.5rem; font-weight: 700; margin: 15px 0;">$45<span
+                                style="font-size: 1rem; color: var(--text-muted);">/session</span></div>
+                        <ul style="margin-bottom: 30px; line-height: 2;">
+                            <li><i class="fas fa-check" style="color: var(--color-success); margin-right: 10px;"></i>
+                                One-time class</li>
+                            <li><i class="fas fa-check" style="color: var(--color-success); margin-right: 10px;"></i>
+                                Materials included</li>
+                            <li><i class="fas fa-check" style="color: var(--color-success); margin-right: 10px;"></i>
+                                Storage for pieces</li>
+                        </ul>
+                        <a href="membership.html" class="btn btn-ghost" style="width: 100%;">Get Started</a>
+                    </div>
+                    <!-- Tier 2 -->
+                    <div class="card-clay reveal-on-scroll"
+                        style="background: var(--bg-card); transform: scale(1.05); border-color: var(--color-primary);">
+                        <span class="badge badge-terracotta" style="position: absolute; top: 20px; right: 20px;">Most
+                            Popular</span>
+                        <h4
+                            style="font-family: var(--font-handwritten); font-size: 1.5rem; color: var(--color-primary);">
+                            Member</h4>
+                        <div style="font-size: 2.5rem; font-weight: 700; margin: 15px 0;">$120<span
+                                style="font-size: 1rem; color: var(--text-muted);">/month</span></div>
+                        <ul style="margin-bottom: 30px; line-height: 2;">
+                            <li><i class="fas fa-check" style="color: var(--color-success); margin-right: 10px;"></i> 4
+                                Classes included</li>
+                            <li><i class="fas fa-check" style="color: var(--color-success); margin-right: 10px;"></i> 20
+                                hrs Open Studio</li>
+                            <li><i class="fas fa-check" style="color: var(--color-success); margin-right: 10px;"></i>
+                                10% Glaze Discount</li>
+                        </ul>
+                        <a href="membership.html" class="btn btn-primary" style="width: 100%;">Join the Club</a>
+                    </div>
+                    <!-- Tier 3 -->
+                    <div class="card-clay reveal-on-scroll" style="background: var(--bg-card);">
+                        <h4
+                            style="font-family: var(--font-handwritten); font-size: 1.5rem; color: var(--color-primary);">
+                            Studio Artist</h4>
+                        <div style="font-size: 2.5rem; font-weight: 700; margin: 15px 0;">$250<span
+                                style="font-size: 1rem; color: var(--text-muted);">/month</span></div>
+                        <ul style="margin-bottom: 30px; line-height: 2;">
+                            <li><i class="fas fa-check" style="color: var(--color-success); margin-right: 10px;"></i>
+                                24/7 Studio Access</li>
+                            <li><i class="fas fa-check" style="color: var(--color-success); margin-right: 10px;"></i>
+                                Personal Bench Space</li>
+                            <li><i class="fas fa-check" style="color: var(--color-success); margin-right: 10px;"></i>
+                                Kiln Priority</li>
+                        </ul>
+                        <a href="membership.html" class="btn btn-ghost" style="width: 100%;">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="testimonials" style="padding: 100px 0;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <h2 class="reveal-on-scroll">Voices from the Studio</h2>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                    <div class="card-clay reveal-on-scroll" style="padding: 40px; text-align: center;">
+                        <div style="color: var(--color-warning); margin-bottom: 20px;">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p style="font-style: italic; margin-bottom: 25px;">"Sarah is an amazing teacher. I went from
+                            never touching clay to making my own dinner set in 3 months!"</p>
+                        <h4 style="margin: 0;">Emily Richards</h4>
+                        <img src="https://i.pravatar.cc/100?img=1" alt="Student"
+                            style="width: 60px; height: 60px; border-radius: 50%; margin: 20px auto 0;">
+                    </div>
+                    <div class="card-clay reveal-on-scroll" style="padding: 40px; text-align: center;">
+                        <div style="color: var(--color-warning); margin-bottom: 20px;">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p style="font-style: italic; margin-bottom: 25px;">"The 24/7 access has been a game changer for
+                            my art practice. It's my favorite place in the city."</p>
+                        <h4 style="margin: 0;">David Miller</h4>
+                        <img src="https://i.pravatar.cc/100?img=2" alt="Student"
+                            style="width: 60px; height: 60px; border-radius: 50%; margin: 20px auto 0;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEWSLETTER -->
+        <section class="newsletter" style="padding: 100px 0; background: var(--bg-primary);">
+            <div class="container">
+                <div class="card-clay reveal-on-scroll"
+                    style="background: var(--bg-card); padding: 60px; text-align: center; border: none; box-shadow: 0 30px 60px rgba(0,0,0,0.05);">
+                    <h2 style="font-size: 3rem;">Join the Community</h2>
+                    <p style="max-width: 600px; margin: 20px auto 40px; color: var(--text-secondary);">Get weekly
+                        pottery tips, class updates, and early access to workshops delivered to your inbox.</p>
+                    <form style="display: flex; gap: 15px; max-width: 500px; margin: 0 auto;">
+                        <input type="email" placeholder="Your email address" class="input-clay" style="flex: 1;">
+                        <button type="submit" class="btn btn-primary">Join</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <a href="index.html" class="logo">
+                        <svg width="30" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="32" cy="48" r="12" fill="#6B5444" />
+                            <ellipse cx="32" cy="32" rx="24" ry="6" fill="#C17855" />
+                            <path d="M 20,32 Q 20,18 32,18 Q 44,18 44,32 L 40,32 Q 40,22 32,22 Q 24,22 24,32 Z"
+                                fill="#E8B896" />
+                        </svg>
+                        <span>Clay Studio</span>
+                    </a>
+                    <p>Creating beautiful pieces from earth since 2011. Join our creative sanctuary and find your flow.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="classes.html">Classes</a></li>
+                        <li><a href="member-gallery.html">Member Gallery</a></li>
+                        <li><a href="membership.html">Membership</a></li>
+                        <li><a href="dashboard.html">Member Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="policies.html">Studio Policies</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Follow Us</h4>
+                    <div style="display: flex; gap: 15px;">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Clay Studio. All rights reserved.</p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Particles.js config for clay splatters
+        particlesJS('clay-particles', {
+            "particles": {
+                "number": { "value": 30, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#C17855" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.2, "random": true },
+                "size": { "value": 6, "random": true },
+                "line_linked": { "enable": false },
+                "move": { "enable": true, "speed": 1.5, "direction": "bottom", "random": true, "straight": false, "out_mode": "out" }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": false }, "onclick": { "enable": false }, "resize": true }
+            }
+        });
+    </script>
+</body>
+
+</html>

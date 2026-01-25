@@ -1,0 +1,202 @@
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+    color: #FFFFFF;
+    box-shadow: 0 4px 15px rgba(193, 120, 85, 0.3);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 3s infinite;
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-hover) 100%);
+    color: #FFFFFF;
+}
+
+.btn-ghost {
+    background: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.btn-ghost:hover {
+    background: var(--color-primary);
+    color: #FFFFFF;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* CARDS */
+.card-clay {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 28px;
+    border: 3px solid var(--bg-secondary);
+    position: relative;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.card-clay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('../images/clay-texture.svg');
+    opacity: 0.03;
+    border-radius: 16px;
+    pointer-events: none;
+}
+
+.card-clay:hover {
+    transform: translateY(-8px) rotate(-1deg);
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.input-clay {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--bg-primary);
+    font-size: 1rem;
+    color: var(--text-primary);
+    transition: all 0.3s;
+}
+
+.input-clay:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow:
+        0 0 0 4px rgba(193, 120, 85, 0.1),
+        0 2px 8px rgba(193, 120, 85, 0.15);
+    background: var(--bg-card);
+}
+
+/* Badges */
+.badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.badge-terracotta {
+    background: var(--bg-secondary);
+    color: var(--color-primary);
+}
+
+.badge-sage {
+    background: #E8F0E7;
+    color: var(--color-secondary);
+}
+
+/* Dividers */
+.clay-coil-divider {
+    width: 100%;
+    height: 40px;
+    margin: 40px 0;
+}
+
+/* Tabs */
+.tabs-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: var(--bg-secondary);
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.tab-btn.active {
+    background: var(--color-primary);
+    color: #FFFFFF;
+}
+
+/* Dark Mode Specifics */
+[data-theme="dark"] .btn-primary {
+    border: 1px solid #4A4238;
+}
+
+[data-theme="dark"] .btn-primary:hover {
+    box-shadow: var(--shadow-clay-dark);
+}
+
+[data-theme="dark"] .input-clay {
+    border-color: #4A4238;
+}
+
+[data-theme="dark"] .input-clay:focus {
+    border-color: #E8996B;
+    box-shadow: 0 0 0 4px rgba(232, 153, 107, 0.2);
+}
+
+[data-theme="dark"] .card-clay::after {
+    opacity: 0.05;
+}
+
+/* Scrollbar styling for better aesthetic */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+}

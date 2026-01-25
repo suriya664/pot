@@ -1,0 +1,132 @@
+@keyframes spin-wheel {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.pottery-wheel {
+    animation: spin-wheel 12s linear infinite;
+    transform-style: preserve-3d;
+}
+
+/* Clay being shaped (3D effect simulation) */
+@keyframes clay-rise {
+    0% {
+        transform: scaleY(0.8);
+    }
+
+    100% {
+        transform: scaleY(1.2);
+    }
+}
+
+.clay-forming {
+    animation: clay-rise 3s ease-in-out infinite alternate;
+}
+
+/* Dust Reveal Animation */
+@keyframes dust-reveal {
+    0% {
+        clip-path: circle(0% at 50% 50%);
+        filter: blur(10px);
+        opacity: 0;
+    }
+
+    100% {
+        clip-path: circle(100% at 50% 50%);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+.reveal-on-scroll {
+    opacity: 0;
+    transition: 1s;
+}
+
+.reveal-on-scroll.active {
+    animation: dust-reveal 1.2s ease-out forwards;
+}
+
+/* Float Animation */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.float {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Fade In */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Kiln Fire Glow (Dark Mode) */
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        filter: brightness(1) drop-shadow(0 0 10px rgba(232, 153, 107, 0.2));
+    }
+
+    50% {
+        filter: brightness(1.2) drop-shadow(0 0 25px rgba(232, 153, 107, 0.5));
+    }
+}
+
+[data-theme="dark"] .kiln-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Shimmer effect for buttons */
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+/* Clay Splatter Scale In */
+@keyframes splatter-in {
+    from {
+        transform: scale(0) rotate(-10deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1) rotate(0);
+        opacity: 0.2;
+    }
+}
+
+.splatter-accent {
+    animation: splatter-in 1s ease-out forwards;
+}

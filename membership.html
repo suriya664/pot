@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership | Pottery Studio</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Open+Sans:wght@400;600&family=Caveat:wght@500;700&family=Josefin+Slab:wght@600&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <style>
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 50px;
+            background: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-clay);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 25px;
+            text-align: center;
+            border-bottom: 1px solid var(--bg-secondary);
+        }
+
+        .comparison-table th {
+            background: var(--bg-secondary);
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+        }
+
+        .comparison-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .check-icon {
+            color: var(--color-success);
+        }
+
+        .minus-icon {
+            color: var(--text-muted);
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <svg width="40" height="40" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="48" r="12" fill="#6B5444" />
+                    <ellipse cx="32" cy="32" rx="24" ry="6" fill="#C17855" />
+                    <path d="M 20,32 Q 20,18 32,18 Q 44,18 44,32 L 40,32 Q 40,22 32,22 Q 24,22 24,32 Z"
+                        fill="#E8B896" />
+                </svg>
+                <span>Clay Studio</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home 1</a></li>
+                    <li><a href="index-v2.html" class="nav-link">Home 2</a></li>
+                    <li><a href="classes.html" class="nav-link">Classes</a></li>
+                    <li><a href="member-gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="membership.html" class="nav-link active">Membership</a></li>
+                    <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-ghost" style="padding: 10px 24px;">Login</a>
+                <a href="workshop-registration.html" class="btn btn-primary" style="padding: 10px 24px;">Book Now</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="membership-hero" style="padding: 80px 0; background: var(--bg-primary); text-align: center;">
+            <div class="container">
+                <h1 style="font-size: 3.5rem;">Join Our Clay Community</h1>
+                <p style="margin: 20px auto; max-width: 600px; color: var(--text-secondary);">Whether you're looking for
+                    an occasional creative outlet or a dedicated studio setup, we have a membership for you.</p>
+            </div>
+        </section>
+
+        <section class="pricing-table" style="padding: 60px 0;">
+            <div class="container">
+                <table class="comparison-table reveal-on-scroll">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Drop-In</th>
+                            <th>Member</th>
+                            <th>Studio Artist</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Monthly Price</td>
+                            <td>$45 / class</td>
+                            <td>$120 / month</td>
+                            <td>$250 / month</td>
+                        </tr>
+                        <tr>
+                            <td>Included Classes</td>
+                            <td>Pay per class</td>
+                            <td>4 Classes</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>Open Studio Access</td>
+                            <td><i class="fas fa-minus minus-icon"></i></td>
+                            <td>20 hours / mo</td>
+                            <td>24/7 Access</td>
+                        </tr>
+                        <tr>
+                            <td>Personal Shelf</td>
+                            <td><i class="fas fa-minus minus-icon"></i></td>
+                            <td>Small (6")</td>
+                            <td>Large (18")</td>
+                        </tr>
+                        <tr>
+                            <td>Glaze Discount</td>
+                            <td><i class="fas fa-minus minus-icon"></i></td>
+                            <td>10% Off</td>
+                            <td>20% Off</td>
+                        </tr>
+                        <tr>
+                            <td>Kiln Priority</td>
+                            <td><i class="fas fa-minus minus-icon"></i></td>
+                            <td><i class="fas fa-minus minus-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Tools Library</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px;">
+                    <div style="text-align: center;">
+                        <a href="workshop-registration.html" class="btn btn-ghost" style="width: 100%;">Book a Class</a>
+                    </div>
+                    <div style="text-align: center;">
+                        <a href="register.html" class="btn btn-primary" style="width: 100%;">Join Now</a>
+                    </div>
+                    <div style="text-align: center;">
+                        <a href="contact.html" class="btn btn-ghost" style="width: 100%;">Apply for Artist</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits" style="padding: 100px 0; background: var(--bg-secondary);">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <h2>Member Benefits</h2>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                    <div class="card-clay reveal-on-scroll">
+                        <i class="fas fa-bolt"
+                            style="color: var(--color-primary); font-size: 2rem; margin-bottom: 20px;"></i>
+                        <h4>Priority Firing</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Get your pieces in the kiln first
+                            with guaranteed weekly firing slots.</p>
+                    </div>
+                    <div class="card-clay reveal-on-scroll">
+                        <i class="fas fa-users"
+                            style="color: var(--color-primary); font-size: 2rem; margin-bottom: 20px;"></i>
+                        <h4>Community Events</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Quarterly member dinners, gallery
+                            shows, and guest artist workshops.</p>
+                    </div>
+                    <div class="card-clay reveal-on-scroll">
+                        <i class="fas fa-flask"
+                            style="color: var(--color-primary); font-size: 2rem; margin-bottom: 20px;"></i>
+                        <h4>Custom Glazes</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Access to our private glaze lab and
+                            materials for your own recipes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Clay Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

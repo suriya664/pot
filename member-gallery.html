@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Gallery | Pottery Studio</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Open+Sans:wght@400;600&family=Caveat:wght@500;700&family=Josefin+Slab:wght@600&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <style>
+        .masonry-container {
+            columns: 3;
+            column-gap: 25px;
+        }
+
+        .gallery-item {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 25px;
+            break-inside: avoid;
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            transition: 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: 0.3s;
+            color: #fff;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        @media (max-width: 992px) {
+            .masonry-container {
+                columns: 2;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .masonry-container {
+                columns: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <svg width="40" height="40" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="48" r="12" fill="#6B5444" />
+                    <ellipse cx="32" cy="32" rx="24" ry="6" fill="#C17855" />
+                    <path d="M 20,32 Q 20,18 32,18 Q 44,18 44,32 L 40,32 Q 40,22 32,22 Q 24,22 24,32 Z"
+                        fill="#E8B896" />
+                </svg>
+                <span>Clay Studio</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home 1</a></li>
+                    <li><a href="index-v2.html" class="nav-link">Home 2</a></li>
+                    <li><a href="classes.html" class="nav-link">Classes</a></li>
+                    <li><a href="member-gallery.html" class="nav-link active">Gallery</a></li>
+                    <li><a href="membership.html" class="nav-link">Membership</a></li>
+                    <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-ghost" style="padding: 10px 24px;">Login</a>
+                <a href="workshop-registration.html" class="btn btn-primary" style="padding: 10px 24px;">Book Now</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="gallery-hero" style="padding: 80px 0; background: var(--bg-primary); text-align: center;">
+            <div class="container">
+                <h1 style="font-size: 3.5rem;">Community Creations</h1>
+                <p style="margin: 20px auto; max-width: 600px; color: var(--text-secondary);">"Every piece tells a
+                    story." Explore the incredible work created by our students and resident artists.</p>
+                <div class="filter-btns"
+                    style="display: flex; justify-content: center; gap: 15px; margin-top: 40px; flex-wrap: wrap;">
+                    <button class="tab-btn active">All Pieces</button>
+                    <button class="tab-btn">Wheel Thrown</button>
+                    <button class="tab-btn">Hand-Built</button>
+                    <button class="tab-btn">Sculptural</button>
+                    <button class="tab-btn">Functional</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-grid" style="padding: 60px 0;">
+            <div class="container">
+                <div class="masonry-container">
+                    <!-- Item 1 -->
+                    <div class="gallery-item reveal-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=600" alt="Gallery">
+                        <div class="gallery-overlay">
+                            <h4 style="color: #fff; margin-bottom: 5px;">Speckled Celadon Vase</h4>
+                            <p style="font-size: 0.8rem; opacity: 0.8;">by Maria Rodriguez</p>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="gallery-item reveal-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1610615862459-86c4e0f36c7e?w=600" alt="Gallery">
+                        <div class="gallery-overlay">
+                            <h4 style="color: #fff; margin-bottom: 5px;">Organic Plate Set</h4>
+                            <p style="font-size: 0.8rem; opacity: 0.8;">by Sam Taylor</p>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="gallery-item reveal-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600" alt="Gallery">
+                        <div class="gallery-overlay">
+                            <h4 style="color: #fff; margin-bottom: 5px;">Thrown Mug</h4>
+                            <p style="font-size: 0.8rem; opacity: 0.8;">by Alex P.</p>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="gallery-item reveal-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1610701596061-2ecf227e85b2?w=600" alt="Gallery">
+                        <div class="gallery-overlay">
+                            <h4 style="color: #fff; margin-bottom: 5px;">Sculptural Torso</h4>
+                            <p style="font-size: 0.8rem; opacity: 0.8;">by Elena R.</p>
+                        </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="gallery-item reveal-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=600" alt="Gallery">
+                        <div class="gallery-overlay">
+                            <h4 style="color: #fff; margin-bottom: 5px;">Hand-built Planter</h4>
+                            <p style="font-size: 0.8rem; opacity: 0.8;">by Jordan W.</p>
+                        </div>
+                    </div>
+                    <!-- Item 6 -->
+                    <div class="gallery-item reveal-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1610701026592-ea582866c0f3?w=600" alt="Gallery">
+                        <div class="gallery-overlay">
+                            <h4 style="color: #fff; margin-bottom: 5px;">Indigo Bowl</h4>
+                            <p style="font-size: 0.8rem; opacity: 0.8;">by David Miller</p>
+                        </div>
+                    </div>
+                    <!-- Item 7 -->
+                    <div class="gallery-item reveal-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1200&q=80"
+                            alt="Gallery">
+                        <div class="gallery-overlay">
+                            <h4 style="color: #fff; margin-bottom: 5px;">Glazed Pitcher</h4>
+                            <p style="font-size: 0.8rem; opacity: 0.8;">by Sarah Chen</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 60px;">
+                    <button class="btn btn-ghost" style="padding: 15px 40px;">Load More Projects</button>
+                    <p style="margin-top: 30px; font-weight: 600;">Member of the studio? <a href="dashboard.html"
+                            style="color: var(--color-primary); text-decoration: underline;">Upload your work</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Clay Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
