@@ -33,6 +33,10 @@
             </a>
             <nav>
                 <ul class="nav-links">
+                    <!-- Close Button for Mobile -->
+                    <div class="close-menu-btn mobile-only">
+                        <i class="fas fa-times"></i>
+                    </div>
                     <li><a href="index.html" class="nav-link">Home 1</a></li>
                     <li><a href="index-v2.html" class="nav-link">Home 2</a></li>
                     <li><a href="classes.html" class="nav-link active">Classes</a></li>
@@ -40,10 +44,23 @@
                     <li><a href="membership.html" class="nav-link">Membership</a></li>
                     <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
                     <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <!-- Mobile Only Buttons -->
+                    <li class="mobile-only" style="margin-top: 20px;"><a href="login.html" class="btn btn-ghost"
+                            style="width: 100%; text-align: center;">Login</a></li>
+                    <li class="mobile-only"><a href="workshop-registration.html" class="btn btn-primary"
+                            style="width: 100%; text-align: center;">Book Now</a></li>
                 </ul>
             </nav>
             <div class="nav-actions">
-                <a href="workshop-registration.html" class="btn btn-primary">Book Now</a>
+                <div class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <a href="login.html" class="btn btn-ghost desktop-only" style="padding: 10px 24px;">Login</a>
+                <a href="workshop-registration.html" class="btn btn-primary desktop-only"
+                    style="padding: 10px 24px;">Book Now</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
             </div>
         </div>
     </header>
@@ -69,7 +86,7 @@
         <section class="class-listings" style="padding: 100px 0;">
             <div class="container">
                 <!-- BEGINNER CLASSES -->
-                <h2 style="margin-bottom: 40px;">Beginner Courses</h2>
+                <h2 style="margin-bottom: 40px;text-align: center;">Beginner Courses</h2>
                 <div
                     style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 40px; margin-bottom: 80px;">
                     <!-- Class Card 1 -->
@@ -94,7 +111,7 @@
                     </div>
                     <!-- Class Card 2 -->
                     <div class="card-clay reveal-on-scroll">
-                        <img src="https://images.unsplash.com/photo-1610701026592-ea582866c0f3?w=800"
+                        <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=800"
                             alt="Hand-Building"
                             style="width: 100%; height: 220px; object-fit: cover; border-radius: 12px; margin-bottom: 20px;">
                         <span class="badge badge-sage">4-Week Course</span>
@@ -112,12 +129,31 @@
                                 style="padding: 8px 20px;">Register</a>
                         </div>
                     </div>
+                    <!-- Class Card 3 -->
+                    <div class="card-clay reveal-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1493106641515-6b5631de4bb9?w=800" alt="Glazing"
+                            style="width: 100%; height: 220px; object-fit: cover; border-radius: 12px; margin-bottom: 20px;">
+                        <span class="badge badge-terracotta">4-Week Course</span>
+                        <h3 style="margin: 15px 0;">Glazing Techniques</h3>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 20px;">Discover the
+                            art of surface decoration. Learn dipping, pouring, and brushing techniques.</p>
+                        <ul style="font-size: 0.9rem; margin-bottom: 25px; line-height: 2;">
+                            <li><i class="far fa-clock"></i> 2 hours / session</li>
+                            <li><i class="far fa-user"></i> Max 10 students</li>
+                            <li><i class="fas fa-dollar-sign"></i> $290 (Materials included)</li>
+                        </ul>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 700; color: var(--color-primary);">Starts Feb 15th</span>
+                            <a href="workshop-registration.html" class="btn btn-primary"
+                                style="padding: 8px 20px;">Register</a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- INTERMEDIATE & ADVANCED -->
-                <h2 style="margin-bottom: 40px;">Professional Workshops</h2>
+                <h2 style="margin-bottom: 40px;text-align: center;">Professional Workshops</h2>
                 <div
-                    style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 40px; margin-bottom: 80px;">
+                    style="display: grid; text-align: center; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 40px; margin-bottom: 80px;">
                     <div class="card-clay reveal-on-scroll">
                         <span class="badge badge-terracotta">Advanced</span>
                         <h3 style="margin: 15px 0;">Glaze Chemistry</h3>
@@ -134,16 +170,25 @@
                         <a href="workshop-registration.html" class="btn btn-secondary" style="width: 100%;">Reserve
                             Spot</a>
                     </div>
+                    <!-- Workshop Card 3 -->
+                    <div class="card-clay reveal-on-scroll">
+                        <span class="badge badge-terracotta">Weekend Intensive</span>
+                        <h3 style="margin: 15px 0;">Mastering Large Forms</h3>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 20px;">Push your
+                            throwing skills to the limit. Learn section throwing and coil-adding for large scale
+                            vessels.</p>
+                        <a href="workshop-registration.html" class="btn btn-secondary" style="width: 100%;">Reserve
+                            Spot</a>
+                    </div>
                 </div>
 
                 <!-- PRIVATE LESSONS -->
-                <div class="card-clay reveal-on-scroll"
-                    style="background: var(--bg-secondary); border: none; display: flex; gap: 40px; align-items: center; padding: 60px;">
-                    <div style="flex: 1.5;">
+                <div class="card-clay reveal-on-scroll private-lessons-card">
+                    <div class="private-lessons-content">
                         <h2 style="font-size: 2.5rem;">Private Lessons</h2>
                         <p style="margin: 20px 0 35px;">Need one-on-one attention? Book a private session with our lead
                             instructors to refine your specific technique or work on a complex project.</p>
-                        <div style="display: flex; gap: 30px;">
+                        <div class="private-lessons-options">
                             <div>
                                 <h4 style="margin-bottom: 5px;">$80 / Hour</h4>
                                 <p style="font-size: 0.85rem; color: var(--text-muted);">Single session</p>
@@ -154,7 +199,7 @@
                             </div>
                         </div>
                     </div>
-                    <div style="flex: 1; text-align: center;">
+                    <div class="private-lessons-action">
                         <a href="contact.html" class="btn btn-primary" style="padding: 20px 40px;">Book Private
                             Lesson</a>
                     </div>
@@ -177,8 +222,52 @@
 
     <footer>
         <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <a href="index.html" class="logo">
+                        <svg width="30" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="32" cy="48" r="12" fill="#6B5444" />
+                            <ellipse cx="32" cy="32" rx="24" ry="6" fill="#C17855" />
+                            <path d="M 20,32 Q 20,18 32,18 Q 44,18 44,32 L 40,32 Q 40,22 32,22 Q 24,22 24,32 Z"
+                                fill="#E8B896" />
+                        </svg>
+                        <span>Clay Studio</span>
+                    </a>
+                    <p>Creating beautiful pieces from earth since 2011. Join our creative sanctuary and find your flow.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="classes.html">Classes</a></li>
+                        <li><a href="member-gallery.html">Member Gallery</a></li>
+                        <li><a href="membership.html">Membership</a></li>
+                        <li><a href="dashboard.html">Member Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="policies.html">Studio Policies</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Follow Us</h4>
+                    <div style="display: flex; gap: 15px;">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+            </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Clay Studio. All rights reserved.</p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>

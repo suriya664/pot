@@ -59,9 +59,35 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Mobile Menu (Simple Toggle)
 const menuBtn = document.querySelector('.mobile-menu-btn');
 const navLinks = document.querySelector('.nav-links');
+const closeBtn = document.querySelector('.close-menu-btn');
 
 if (menuBtn) {
     menuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
+        navLinks.classList.add('active'); // Changed to add for explicit open
+        menuBtn.style.display = 'none'; // Hide hamburger when menu is open
     });
 }
+
+if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        if (menuBtn) menuBtn.style.display = ''; // Show hamburger when menu is closed
+    });
+}
+
+// Close menu when clicking a link (optional but good UX)
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (navLinks) {
+            navLinks.classList.remove('active');
+            if (menuBtn) menuBtn.style.display = ''; // Show hamburger
+        }
+    });
+});
+// Close menu when clicking outside (optional)
+document.addEventListener('click', (e) => {
+    if (navLinks && navLinks.classList.contains('active') && !navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
+        navLinks.classList.remove('active');
+        if (menuBtn) menuBtn.style.display = ''; // Show hamburger
+    }
+});

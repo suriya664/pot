@@ -34,6 +34,10 @@
 
             <nav>
                 <ul class="nav-links">
+                    <!-- Close Button for Mobile -->
+                    <div class="close-menu-btn mobile-only">
+                        <i class="fas fa-times"></i>
+                    </div>
                     <li><a href="index.html" class="nav-link">Home 1</a></li>
                     <li><a href="index-v2.html" class="nav-link active">Home 2</a></li>
                     <li><a href="classes.html" class="nav-link">Classes</a></li>
@@ -41,6 +45,11 @@
                     <li><a href="membership.html" class="nav-link">Membership</a></li>
                     <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
                     <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <!-- Mobile Only Buttons -->
+                    <li class="mobile-only" style="margin-top: 20px;"><a href="login.html" class="btn btn-ghost"
+                            style="width: 100%; text-align: center;">Login</a></li>
+                    <li class="mobile-only"><a href="workshop-registration.html" class="btn btn-primary"
+                            style="width: 100%; text-align: center;">Book Now</a></li>
                 </ul>
             </nav>
 
@@ -48,30 +57,29 @@
                 <div class="theme-toggle">
                     <i class="fas fa-moon"></i>
                 </div>
-                <a href="login.html" class="btn btn-ghost" style="padding: 10px 24px;">Login</a>
-                <a href="workshop-registration.html" class="btn btn-primary" style="padding: 10px 24px;">Book Now</a>
+                <a href="login.html" class="btn btn-ghost desktop-only" style="padding: 10px 24px;">Login</a>
+                <a href="workshop-registration.html" class="btn btn-primary desktop-only"
+                    style="padding: 10px 24px;">Book Now</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
             </div>
         </div>
     </header>
 
     <main>
         <!-- SPLIT HERO -->
-        <section class="hero-v2" style="display: flex; min-height: 90vh; background: var(--bg-primary);">
-            <div class="hero-left" style="flex: 1.5; position: relative; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1200" alt="Pottery Workshop"
-                    style="width: 100%; height: 100%; object-fit: cover;">
-                <div
-                    style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.4), transparent);">
-                </div>
-                <div style="position: absolute; bottom: 60px; left: 60px; color: #fff;">
-                    <h1 style="font-size: 4rem; color: #fff; margin-bottom: 20px;">Master the <br><span
-                            style="color: var(--color-accent-1);">Art of Clay</span></h1>
+        <section class="hero-v2">
+            <div class="hero-left">
+                <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1200" alt="Pottery Workshop">
+                <div class="hero-overlay"></div>
+                <div class="hero-text-content">
+                    <h1>Master the <br><span>Art of Clay</span></h1>
                 </div>
             </div>
-            <div class="hero-right"
-                style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px; background: rgba(237, 230, 219, 0.5);">
-                <div class="card-clay" style="width: 100%; max-width: 450px; background: var(--bg-card);">
-                    <h3 style="margin-bottom: 25px;">Check Availability</h3>
+            <div class="hero-right">
+                <div class="card-clay availability-card">
+                    <h3>Check Availability</h3>
                     <form>
                         <div class="form-group">
                             <label>Class Type</label>
@@ -98,52 +106,35 @@
         </section>
 
         <!-- SCROLLING TIMELINE -->
-        <section class="timeline" style="padding: 100px 0; overflow-x: hidden;">
+        <!-- SCROLLING TIMELINE -->
+        <section class="timeline-section">
             <div class="container">
-                <div style="text-align: center; margin-bottom: 80px;">
+                <div class="timeline-header">
                     <h2 class="reveal-on-scroll">Your Pottery Journey</h2>
                 </div>
-                <div style="display: flex; justify-content: space-between; position: relative;">
+                <div class="timeline-steps">
                     <!-- Line -->
-                    <div
-                        style="position: absolute; top: 40px; left: 0; width: 100%; height: 2px; background: var(--border-color); z-index: 1;">
-                    </div>
+                    <div class="timeline-line"></div>
 
-                    <div class="step-item reveal-on-scroll"
-                        style="flex: 1; text-align: center; position: relative; z-index: 2;">
-                        <div
-                            style="width: 80px; height: 80px; background: var(--color-primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem; font-weight: 700;">
-                            1</div>
+                    <div class="step-item reveal-on-scroll">
+                        <div class="step-number">1</div>
                         <h4>Choose a Class</h4>
-                        <p style="font-size: 0.9rem; color: var(--text-muted); padding: 0 10px;">Select from beginner to
-                            advanced sessions.</p>
+                        <p>Select from beginner to advanced sessions.</p>
                     </div>
-                    <div class="step-item reveal-on-scroll"
-                        style="flex: 1; text-align: center; position: relative; z-index: 2;">
-                        <div
-                            style="width: 80px; height: 80px; background: var(--color-primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem; font-weight: 700;">
-                            2</div>
+                    <div class="step-item reveal-on-scroll">
+                        <div class="step-number">2</div>
                         <h4>Get Hands Dirty</h4>
-                        <p style="font-size: 0.9rem; color: var(--text-muted); padding: 0 10px;">Find your flow on the
-                            wheel or slab table.</p>
+                        <p>Find your flow on the wheel or slab table.</p>
                     </div>
-                    <div class="step-item reveal-on-scroll"
-                        style="flex: 1; text-align: center; position: relative; z-index: 2;">
-                        <div
-                            style="width: 80px; height: 80px; background: var(--color-primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem; font-weight: 700;">
-                            3</div>
+                    <div class="step-item reveal-on-scroll">
+                        <div class="step-number">3</div>
                         <h4>Glaze & Fire</h4>
-                        <p style="font-size: 0.9rem; color: var(--text-muted); padding: 0 10px;">Pick your colors and
-                            let the kiln do its magic.</p>
+                        <p>Pick your colors and let the kiln do its magic.</p>
                     </div>
-                    <div class="step-item reveal-on-scroll"
-                        style="flex: 1; text-align: center; position: relative; z-index: 2;">
-                        <div
-                            style="width: 80px; height: 80px; background: var(--color-primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem; font-weight: 700;">
-                            4</div>
+                    <div class="step-item reveal-on-scroll">
+                        <div class="step-number">4</div>
                         <h4>Take Home Art</h4>
-                        <p style="font-size: 0.9rem; color: var(--text-muted); padding: 0 10px;">Use your own handmade
-                            ceramics every day.</p>
+                        <p>Use your own handmade ceramics every day.</p>
                     </div>
                 </div>
             </div>
@@ -151,8 +142,8 @@
 
         <!-- 3D POTTERY SHOWCASE -->
         <section class="showcase-3d" style="padding: 100px 0; background: var(--bg-secondary);">
-            <div class="container" style="display: flex; align-items: center; gap: 80px;">
-                <div style="flex: 1;">
+            <div class="container rotate-container" style="display: flex; align-items: center; gap: 80px;">
+                <div class="rotate-form" style="flex: 1;">
                     <h2 class="reveal-on-scroll">Rotate the Form</h2>
                     <p style="margin: 25px 0;">Experience the textures and shapes of our signature pieces. Drag to
                         rotate the 3D model.</p>
@@ -162,7 +153,7 @@
                             inspired by traditional Korean ceramics. Fired at Cone 10 for a deep, crackled finish."</p>
                     </div>
                 </div>
-                <div
+                <div class="rotate-3d"
                     style="flex: 1.2; height: 500px; background: var(--bg-card); border-radius: 30px; display: flex; align-items: center; justify-content: center; position: relative;">
                     <!-- Placeholder for Three.js / CSS 3D -->
                     <div class="pottery-wheel-loader" style="transform: scale(2);">
@@ -185,7 +176,7 @@
                 <div style="text-align: center; margin-bottom: 60px;">
                     <h2 class="reveal-on-scroll">Explore Workshops</h2>
                 </div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <div class="workshops-grid">
                     <div class="card-clay reveal-on-scroll"
                         style="height: 400px; padding: 0; background: url('https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=800') center/cover;">
                         <div
@@ -197,7 +188,7 @@
                         </div>
                     </div>
                     <div class="card-clay reveal-on-scroll"
-                        style="height: 400px; padding: 0; background: url('https://images.unsplash.com/photo-1610701026592-ea582866c0f3?w=800') center/cover;">
+                        style="height: 400px; padding: 0; background: url('https://images.squarespace-cdn.com/content/v1/63c200e3eda39671a50ab26b/17033d86-cd92-4c88-b72a-b1c6bae8268f/DSC07946.jpg') center/cover;">
                         <div
                             style="background: rgba(0,0,0,0.4); width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 40px;">
                             <h3 style="color: #fff; font-size: 2rem;">Hand-Building Magic</h3>
@@ -233,13 +224,12 @@
         </section>
 
         <!-- PRICING CALCULATOR -->
-        <section class="pricing-calc" style="padding: 100px 0;">
+        <section class="plan-practice-section">
             <div class="container">
-                <div style="display: flex; gap: 80px; align-items: center;">
-                    <div style="flex: 1;">
+                <div class="practice-container">
+                    <div class="practice-content">
                         <h2 class="reveal-on-scroll">Plan Your Practice</h2>
-                        <p style="margin: 25px 0;">Use our interactive calculator to find the best value for your
-                            pottery goals.</p>
+                        <p>Use our interactive calculator to find the best value for your pottery goals.</p>
                         <div class="calculator-form">
                             <div class="form-group">
                                 <label>Classes per month</label>
@@ -259,25 +249,21 @@
                             </div>
                         </div>
                     </div>
-                    <div
-                        style="flex: 1; background: var(--color-primary); color: #fff; padding: 60px; border-radius: 30px; text-align: center;">
-                        <h4 style="color: #fff; margin-bottom: 20px;">Estimated Monthly Cost</h4>
-                        <div style="font-size: 4rem; font-weight: 700;">$145</div>
-                        <p style="margin: 20px 0; color: rgba(255,255,255,0.8);">Includes 4 sessions + 20 hours access
-                        </p>
-                        <div
-                            style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 15px; font-weight: 600;">
+                    <div class="practice-card">
+                        <h4>Estimated Monthly Cost</h4>
+                        <div class="price-display">$145</div>
+                        <p>Includes 4 sessions + 20 hours access</p>
+                        <div class="savings-badge">
                             ✨ You save 15% vs. Drop-in rates
                         </div>
-                        <a href="membership.html" class="btn btn-ghost"
-                            style="border-color: #fff; color: #fff; margin-top: 30px; width: 100%;">Get Started</a>
+                        <a href="membership.html" class="btn btn-ghost">Get Started</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- FAQ -->
-        <section class="faq" style="padding: 100px 0; background: var(--bg-secondary);">
+        <section class="faq" style="padding: 100px 0; ">
             <div class="container" style="max-width: 800px;">
                 <h2 style="text-align: center; margin-bottom: 60px;">Common Questions</h2>
                 <div class="faq-grid">
@@ -328,6 +314,15 @@
                         <li><a href="classes.html">Classes</a></li>
                         <li><a href="member-gallery.html">Member Gallery</a></li>
                         <li><a href="membership.html">Membership</a></li>
+                        <li><a href="dashboard.html">Member Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="policies.html">Studio Policies</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -341,6 +336,10 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Clay Studio. All rights reserved.</p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>

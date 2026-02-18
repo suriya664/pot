@@ -135,19 +135,134 @@
             border-radius: 20px;
         }
 
+        .dashboard-content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .recent-projects-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
         @media (max-width: 992px) {
-            .sidebar {
-                width: 80px;
-                padding: 20px 10px;
+            .stats-grid {
+                grid-template-columns: 1fr;
             }
 
-            .sidebar span,
-            .sidebar .logo span {
-                display: none;
+            .dashboard-content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .recent-projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .workshop-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            .sidebar {
+                transform: translateX(-100%);
+                position: fixed;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 280px;
+                z-index: 1000;
+                transition: transform 0.3s ease;
+                box-shadow: var(--shadow-clay);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
             }
 
             .dashboard-main {
-                margin-left: 80px;
+                margin-left: 0;
+                width: 100%;
+            }
+
+            #sidebarToggle {
+                display: inline-block !important;
+            }
+
+            #sidebarClose {
+                display: block !important;
+            }
+
+            /* Overlay when sidebar is open */
+            .sidebar-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 900;
+            }
+
+            .sidebar-overlay.active {
+                display: block;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .recent-projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Stack Upcomming Workshops as Cards */
+            .workshop-table thead {
+                display: none;
+            }
+
+            .workshop-table,
+            .workshop-table tbody,
+            .workshop-table tr,
+            .workshop-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .workshop-table tr {
+                margin-bottom: 15px;
+                border: 1px solid var(--border-color);
+                border-radius: 12px;
+                padding: 15px;
+                background: var(--bg-card);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            }
+
+            .workshop-table td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 0;
+                border-bottom: 1px solid var(--bg-secondary);
+                text-align: right;
+            }
+
+            .workshop-table td:last-child {
+                border-bottom: none;
+            }
+
+            .workshop-table td::before {
+                content: attr(data-label);
+                font-weight: 600;
+                color: var(--text-secondary);
+                text-align: left;
+                margin-right: 15px;
+            }
+
+            /* Adjust Kiln Schedule Spacing */
+            .kiln-status-card {
+                margin-top: 20px;
             }
         }
     </style>
@@ -156,6 +271,10 @@
 <body>
 
     <aside class="sidebar">
+        <button id="sidebarClose" class="btn-ghost"
+            style="position: absolute; top: 15px; right: 15px; font-size: 1.2rem; cursor: pointer; color: var(--text-secondary); display: none; border: none; background: transparent; box-shadow: none;">
+            <i class="fas fa-times"></i>
+        </button>
         <a href="index.html" class="logo">
             <svg width="40" height="40" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="32" cy="48" r="12" fill="#6B5444" />
@@ -166,7 +285,7 @@
 
         <div style="margin-top: 30px; text-align: center;">
             <img src="https://i.pravatar.cc/100?img=12"
-                style="width: 60px; height: 60px; border-radius: 50%; border: 3px solid var(--color-primary);">
+                style="width: 60px;margin: 0 auto; height: 60px; border-radius: 50%; border: 3px solid var(--color-primary);">
             <h4 style="margin-top: 10px;">Marcus T.</h4>
             <span class="badge badge-sage" style="font-size: 0.7rem;">Studio Artist</span>
         </div>
@@ -191,10 +310,14 @@
     <main class="dashboard-main">
         <div class="top-bar">
             <div>
-                <h1 style="margin: 0;">Welcome back, Marcus!</h1>
-                <p style="color: var(--text-muted);">Sunday, January 25, 2026</p>
+                <h1 style="margin: 0; display: inline-block;text-align: center;">Welcome back, Marcus!</h1>
+                <p style="color: var(--text-muted); margin-top: 5px;">Sunday, January 25, 2026</p>
             </div>
             <div style="display: flex; gap: 20px; align-items: center;">
+                <button id="sidebarToggle" class="btn-ghost"
+                    style="display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-primary); border: none; background: transparent; box-shadow: none;">
+                    <i class="fas fa-bars"></i>
+                </button>
                 <div style="position: relative; cursor: pointer;">
                     <i class="fas fa-bell" style="font-size: 1.2rem; color: var(--text-secondary);"></i>
                     <span
@@ -205,26 +328,26 @@
         </div>
 
         <div class="stats-grid">
-            <div class="card-clay" style="padding: 25px;">
+            <div class="card-clay" style="padding: 25px;text-align: center;">
                 <p style="font-size: 0.9rem; color: var(--text-muted);">Projects Created</p>
                 <h2 style="font-size: 2.5rem; margin: 10px 0;">24</h2>
                 <p style="font-size: 0.8rem; color: var(--color-success);">+3 this month</p>
             </div>
-            <div class="card-clay" style="padding: 25px;">
+            <div class="card-clay" style="padding: 25px;text-align: center;">
                 <p style="font-size: 0.9rem; color: var(--text-muted);">Studio Hours</p>
                 <h2 style="font-size: 2.5rem; margin: 10px 0;">15/20</h2>
                 <p style="font-size: 0.8rem; color: var(--text-muted);">Used this month</p>
             </div>
-            <div class="card-clay" style="padding: 25px;">
+            <div class="card-clay" style="padding: 25px;text-align: center;">
                 <p style="font-size: 0.9rem; color: var(--text-muted);">Account Balance</p>
                 <h2 style="font-size: 2.5rem; margin: 10px 0;">$0.00</h2>
                 <p style="font-size: 0.8rem; color: var(--text-muted);">Next billing: Feb 1st</p>
             </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px;">
+        <div class="dashboard-content-grid">
             <div class="upcoming-classes">
-                <h3 style="margin-bottom: 20px;">Upcoming Workshops</h3>
+                <h3 style="margin-bottom: 20px;text-align: center;">Upcoming Workshops</h3>
                 <table class="workshop-table">
                     <thead>
                         <tr>
@@ -237,19 +360,19 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Wheel 101 - Session 3</td>
-                            <td>Jan 28, 2026</td>
-                            <td>7 - 9 PM</td>
-                            <td><span class="badge badge-sage">Confirmed</span></td>
-                            <td><button class="btn btn-ghost"
+                            <td data-label="Class">Wheel 101 - Session 3</td>
+                            <td data-label="Date">Jan 28, 2026</td>
+                            <td data-label="Time">7 - 9 PM</td>
+                            <td data-label="Status"><span class="badge badge-sage">Confirmed</span></td>
+                            <td data-label="Action"><button class="btn btn-ghost"
                                     style="padding: 5px 15px; font-size: 0.8rem;">Details</button></td>
                         </tr>
                         <tr>
-                            <td>Glazing Workshop</td>
-                            <td>Feb 5, 2026</td>
-                            <td>10 AM - 1 PM</td>
-                            <td><span class="badge badge-sage">Confirmed</span></td>
-                            <td><button class="btn btn-ghost"
+                            <td data-label="Class">Glazing Workshop</td>
+                            <td data-label="Date">Feb 5, 2026</td>
+                            <td data-label="Time">10 AM - 1 PM</td>
+                            <td data-label="Status"><span class="badge badge-sage">Confirmed</span></td>
+                            <td data-label="Action"><button class="btn btn-ghost"
                                     style="padding: 5px 15px; font-size: 0.8rem;">Details</button></td>
                         </tr>
                     </tbody>
@@ -257,7 +380,7 @@
             </div>
 
             <div class="kiln-status-card">
-                <h3 style="margin-bottom: 20px;">Kiln Schedule</h3>
+                <h3 style="margin-bottom: 20px;text-align: center;">Kiln Schedule</h3>
                 <div style="text-align: center; margin-bottom: 20px;">
                     <div
                         style="width: 120px; height: 120px; margin: 0 auto; border: 8px solid var(--bg-secondary); border-top-color: var(--color-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; animation: spin-wheel 5s linear infinite;">
@@ -275,30 +398,30 @@
 
         <div style="margin-top: 40px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <h3>My Recent Projects</h3>
+                <h3 style="margin: 0 auto;">My Recent Projects</h3>
                 <a href="#" style="color: var(--color-primary); font-weight: 700; font-size: 0.9rem;">View All</a>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
-                <div class="card-clay" style="padding: 10px;">
+            <div class="recent-projects-grid">
+                <div class="card-clay" style="padding: 10px;text-align: center;">
                     <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=400"
                         style="width: 100%; border-radius: 10px; height: 150px; object-fit: cover;">
                     <p style="margin-top: 10px; font-weight: 600; font-size: 0.9rem;">Large Cobalt Bowl</p>
                     <span class="badge badge-terracotta" style="font-size: 0.6rem;">Fired</span>
                 </div>
-                <div class="card-clay" style="padding: 10px;">
-                    <img src="https://images.unsplash.com/photo-1610615862459-86c4e0f36c7e?w=400"
+                <div class="card-clay" style="padding: 10px;text-align: center;">
+                    <img src="https://dusk.com/cdn/shop/files/alfredo-speckled-stoneware-set-of-2-mugs-243969.jpg?v=1739875922&width=100%201x,%20/dusk.com/cdn/shop/files/alfredo-speckled-stoneware-set-of-2-mugs-243969.jpg?v=1739875922&width=200%202x"
                         style="width: 100%; border-radius: 10px; height: 150px; object-fit: cover;">
                     <p style="margin-top: 10px; font-weight: 600; font-size: 0.9rem;">Speckled Mug Set</p>
                     <span class="badge badge-sage" style="font-size: 0.6rem;">In Kiln</span>
                 </div>
-                <div class="card-clay" style="padding: 10px;">
+                <div class="card-clay" style="padding: 10px;text-align: center;">
                     <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=400"
                         style="width: 100%; border-radius: 10px; height: 150px; object-fit: cover;">
                     <p style="margin-top: 10px; font-weight: 600; font-size: 0.9rem;">Rustic Planter</p>
                     <span class="badge badge-terracotta" style="font-size: 0.6rem;">Fired</span>
                 </div>
                 <div class="card-clay"
-                    style="padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 2px dashed var(--border-color); background: transparent;">
+                    style="text-align: center;padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 2px dashed var(--border-color); background: transparent;">
                     <i class="fas fa-plus-circle"
                         style="font-size: 2rem; color: var(--border-color); margin-bottom: 10px;"></i>
                     <p style="font-size: 0.85rem; color: var(--text-muted);">Add Project</p>
@@ -307,7 +430,57 @@
         </div>
     </main>
 
+
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebar = document.querySelector('.sidebar');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebarClose = document.getElementById('sidebarClose');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+            function toggleSidebar() {
+                sidebar.classList.toggle('active');
+                sidebarOverlay.classList.toggle('active');
+            }
+
+            function closeSidebar() {
+                sidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+            }
+
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleSidebar();
+                });
+            }
+
+            if (sidebarClose) {
+                sidebarClose.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    closeSidebar();
+                });
+            }
+
+            if (sidebarOverlay) {
+                sidebarOverlay.addEventListener('click', closeSidebar);
+            }
+
+            // Close sidebar when clicking a link (optional, good for mobile)
+            const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 992) {
+                        closeSidebar();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

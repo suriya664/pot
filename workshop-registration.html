@@ -63,6 +63,70 @@
             display: block;
             animation: fadeIn 0.5s ease-out;
         }
+
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .card-clay {
+                padding: 25px !important;
+            }
+
+            .step-progress {
+                margin-bottom: 30px;
+            }
+
+            .step-dot {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+                border-width: 3px;
+            }
+
+            .step-progress::before {
+                top: 17.5px;
+            }
+
+            h2 {
+                font-size: 1.75rem !important;
+            }
+
+            /* Step 1: Class Preview */
+            #class-preview>div {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            #class-preview img {
+                width: 100% !important;
+                height: 200px !important;
+                margin-bottom: 10px;
+            }
+
+            /* Step 2: Form Grid */
+            #step-2>div {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* Step 4: Payment */
+            #step-4 .card-clay {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            #step-4 .form-group>div {
+                flex-direction: column;
+            }
+
+            /* Buttons */
+            .btn {
+                padding: 12px 20px;
+                font-size: 0.95rem;
+            }
+        }
     </style>
 </head>
 
@@ -81,6 +145,10 @@
             </a>
             <nav>
                 <ul class="nav-links">
+                    <!-- Close Button for Mobile -->
+                    <div class="close-menu-btn mobile-only">
+                        <i class="fas fa-times"></i>
+                    </div>
                     <li><a href="index.html" class="nav-link">Home 1</a></li>
                     <li><a href="index-v2.html" class="nav-link">Home 2</a></li>
                     <li><a href="classes.html" class="nav-link">Classes</a></li>
@@ -88,11 +156,26 @@
                     <li><a href="membership.html" class="nav-link">Membership</a></li>
                     <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
                     <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <!-- Mobile Only Buttons -->
+                    <li class="mobile-only" style="margin-top: 20px;"><a href="login.html" class="btn btn-ghost"
+                            style="width: 100%; text-align: center;">Login</a></li>
+                    <li class="mobile-only"><a href="workshop-registration.html" class="btn btn-primary"
+                            style="width: 100%; text-align: center;">Book Now</a></li>
                 </ul>
             </nav>
             <div class="nav-actions">
-                <a href="classes.html" class="nav-link">Back to Classes</a>
+                <div class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <a href="login.html" class="btn btn-ghost desktop-only" style="padding: 10px 24px;">Login</a>
+                <a href="workshop-registration.html" class="btn btn-primary desktop-only"
+                    style="padding: 10px 24px;">Book Now</a>
             </div>
+            <a href="login.html" class="btn btn-ghost" style="padding: 10px 24px;">Login</a>
+        </div>
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
         </div>
     </header>
 
@@ -100,6 +183,12 @@
         style="padding: 60px 0; background: radial-gradient(circle at 10% 10%, rgba(193,120,85,0.05) 0%, transparent 40%);">
         <div class="container" style="max-width: 900px;">
             <div class="card-clay" style="padding: 60px;">
+                <!-- Back Link -->
+                <a href="classes.html"
+                    style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 30px; color: var(--text-secondary); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.3s;">
+                    <i class="fas fa-arrow-left"></i> Back to Classes
+                </a>
+
                 <!-- PROGRESS BAR -->
                 <div class="step-progress">
                     <div class="step-dot active" data-step="1">1</div>
@@ -269,6 +358,58 @@
             </div>
         </div>
     </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <a href="index.html" class="logo">
+                        <svg width="30" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="32" cy="48" r="12" fill="#6B5444" />
+                            <ellipse cx="32" cy="32" rx="24" ry="6" fill="#C17855" />
+                            <path d="M 20,32 Q 20,18 32,18 Q 44,18 44,32 L 40,32 Q 40,22 32,22 Q 24,22 24,32 Z"
+                                fill="#E8B896" />
+                        </svg>
+                        <span>Clay Studio</span>
+                    </a>
+                    <p>Creating beautiful pieces from earth since 2011. Join our creative sanctuary and find your flow.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="classes.html">Classes</a></li>
+                        <li><a href="member-gallery.html">Member Gallery</a></li>
+                        <li><a href="membership.html">Membership</a></li>
+                        <li><a href="dashboard.html">Member Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="policies.html">Studio Policies</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Follow Us</h4>
+                    <div style="display: flex; gap: 15px;">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Clay Studio. All rights reserved.</p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="js/main.js"></script>
     <script>

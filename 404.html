@@ -91,6 +91,10 @@
             </a>
             <nav>
                 <ul class="nav-links">
+                    <!-- Close Button for Mobile -->
+                    <div class="close-menu-btn mobile-only">
+                        <i class="fas fa-times"></i>
+                    </div>
                     <li><a href="index.html" class="nav-link">Home 1</a></li>
                     <li><a href="index-v2.html" class="nav-link">Home 2</a></li>
                     <li><a href="classes.html" class="nav-link">Classes</a></li>
@@ -98,8 +102,24 @@
                     <li><a href="membership.html" class="nav-link">Membership</a></li>
                     <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
                     <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <!-- Mobile Only Buttons -->
+                    <li class="mobile-only" style="margin-top: 20px;"><a href="login.html" class="btn btn-ghost"
+                            style="width: 100%; text-align: center;">Login</a></li>
+                    <li class="mobile-only"><a href="workshop-registration.html" class="btn btn-primary"
+                            style="width: 100%; text-align: center;">Book Now</a></li>
                 </ul>
             </nav>
+            <div class="nav-actions">
+                <div class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <a href="login.html" class="btn btn-ghost desktop-only" style="padding: 10px 24px;">Login</a>
+                <a href="workshop-registration.html" class="btn btn-primary desktop-only"
+                    style="padding: 10px 24px;">Book Now</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </header>
 
