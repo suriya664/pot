@@ -70,8 +70,7 @@
         }
 
         .top-bar {
-            display: flex;
-            justify-content: space-between;
+           justify-content: space-between;
             align-items: center;
             margin-bottom: 40px;
         }
@@ -210,6 +209,50 @@
             .sidebar-overlay.active {
                 display: block;
             }
+
+            /* Tablet responsive for workshop table */
+            .workshop-table thead {
+                display: none;
+            }
+
+            .workshop-table,
+            .workshop-table tbody,
+            .workshop-table tr,
+            .workshop-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .workshop-table tr {
+                margin-bottom: 15px;
+                border: 1px solid var(--border-color);
+                border-radius: 12px;
+                padding: 15px;
+                background: var(--bg-card);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            }
+
+            .workshop-table td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 0;
+                border-bottom: 1px solid var(--bg-secondary);
+                text-align: right;
+            }
+
+            .workshop-table td:last-child {
+                border-bottom: none;
+            }
+
+            .workshop-table td::before {
+                content: attr(data-label);
+                font-weight: 600;
+                color: var(--text-secondary);
+                text-align: left;
+                margin-right: 15px;
+                min-width: 80px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -308,23 +351,24 @@
     </aside>
 
     <main class="dashboard-main">
-        <div class="top-bar">
-            <div>
-                <h1 style="margin: 0; display: inline-block;text-align: center;">Welcome back, Marcus!</h1>
-                <p style="color: var(--text-muted); margin-top: 5px;">Sunday, January 25, 2026</p>
-            </div>
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <button id="sidebarToggle" class="btn-ghost"
-                    style="display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-primary); border: none; background: transparent; box-shadow: none;">
-                    <i class="fas fa-bars"></i>
-                </button>
+        <div style="display: flex; gap: 20px; align-items: center;float: right;">
                 <div style="position: relative; cursor: pointer;">
                     <i class="fas fa-bell" style="font-size: 1.2rem; color: var(--text-secondary);"></i>
                     <span
                         style="position: absolute; top: -5px; right: -5px; width: 10px; height: 10px; background: var(--color-error); border-radius: 50%; border: 2px solid var(--bg-primary);"></span>
                 </div>
                 <div class="theme-toggle" style="cursor: pointer;"><i class="fas fa-moon"></i></div>
+                <button id="sidebarToggle" class="btn-ghost"
+                    style="display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-primary); border: none; background: transparent; box-shadow: none;">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
+        <div class="top-bar">
+            <div>
+                <h1 style="margin: 0; display: inline-block;text-align: center;">Welcome back, Marcus!</h1>
+                <p style="color: var(--text-muted); margin-top: 5px;">Sunday, January 25, 2026</p>
+            </div>
+            
         </div>
 
         <div class="stats-grid">
