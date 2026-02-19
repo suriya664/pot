@@ -65,6 +65,7 @@ if (menuBtn) {
     menuBtn.addEventListener('click', () => {
         navLinks.classList.add('active'); // Changed to add for explicit open
         menuBtn.style.display = 'none'; // Hide hamburger when menu is open
+        document.body.classList.add('menu-open'); // Add class to body for CSS targeting
     });
 }
 
@@ -72,6 +73,7 @@ if (closeBtn) {
     closeBtn.addEventListener('click', () => {
         navLinks.classList.remove('active');
         if (menuBtn) menuBtn.style.display = ''; // Show hamburger when menu is closed
+        document.body.classList.remove('menu-open'); // Remove class from body
     });
 }
 
@@ -81,6 +83,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         if (navLinks) {
             navLinks.classList.remove('active');
             if (menuBtn) menuBtn.style.display = ''; // Show hamburger
+            document.body.classList.remove('menu-open'); // Remove class from body
         }
     });
 });
@@ -89,5 +92,6 @@ document.addEventListener('click', (e) => {
     if (navLinks && navLinks.classList.contains('active') && !navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
         navLinks.classList.remove('active');
         if (menuBtn) menuBtn.style.display = ''; // Show hamburger
+        document.body.classList.remove('menu-open'); // Remove class from body
     }
 });
