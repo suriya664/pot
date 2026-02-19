@@ -20,6 +20,9 @@
 
 <body>
 
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
     <header>
         <div class="container nav-container">
             <a href="index.html" class="logo">
@@ -54,13 +57,15 @@
             </nav>
 
             <div class="nav-actions">
-                <div class="theme-toggle">
-                    <i class="fas fa-moon"></i>
-                </div>
+                
                 <a href="login.html" class="btn btn-ghost desktop-only" style="padding: 10px 24px;">Login</a>
                 <a href="workshop-registration.html" class="btn btn-primary desktop-only"
                     style="padding: 10px 24px;">Book Now</a>
             </div>
+            <div class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+            <!-- Hamburger Menu Button -->
             <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </div>
@@ -69,17 +74,22 @@
 
     <main>
         <!-- SPLIT HERO -->
-        <section class="hero-v2">
-            <div class="hero-left">
-                <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1200" alt="Pottery Workshop">
-                <div class="hero-overlay"></div>
-                <div class="hero-text-content">
-                    <h1>Master the <br><span>Art of Clay</span></h1>
+        <section class="hero-v2" style="display: flex; min-height: 90vh; background: var(--bg-primary);">
+            <div class="hero-left" style="flex: 1.5; position: relative; overflow: hidden;">
+                <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1200" alt="Pottery Workshop"
+                    style="width: 100%; height: 100%; object-fit: cover;">
+                <div
+                    style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.4), transparent);">
+                </div>
+                <div class="hero-content-text" style="position: absolute; bottom: 60px; left: 60px; color: #fff;">
+                    <h1 class="hero-title" style="margin-bottom: 20px;">Master the <br><span class="hero-highlight"
+                            style="color: var(--color-accent-1);">Art of Clay</span></h1>
                 </div>
             </div>
-            <div class="hero-right">
-                <div class="card-clay availability-card">
-                    <h3>Check Availability</h3>
+            <div class="hero-right"
+                style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px; background: rgba(237, 230, 219, 0.5);">
+                <div class="card-clay" style="width: 100%; max-width: 450px; background: var(--bg-card);">
+                    <h3 style="margin-bottom: 25px;">Check Availability</h3>
                     <form>
                         <div class="form-group">
                             <label>Class Type</label>
@@ -106,35 +116,53 @@
         </section>
 
         <!-- SCROLLING TIMELINE -->
-        <!-- SCROLLING TIMELINE -->
-        <section class="timeline-section">
+        <section class="timeline-section" style="padding: 100px 0;">
             <div class="container">
-                <div class="timeline-header">
+                <div style="text-align: center; margin-bottom: 80px;">
                     <h2 class="reveal-on-scroll">Your Pottery Journey</h2>
                 </div>
-                <div class="timeline-steps">
+                <!-- Added timeline-steps class for mobile stacking, kept style for desktop consistency -->
+                <div class="timeline-steps" style="display: flex; justify-content: space-between; position: relative;">
                     <!-- Line -->
-                    <div class="timeline-line"></div>
+                    <div class="timeline-line"
+                        style="position: absolute; top: 40px; left: 0; width: 100%; height: 2px; background: var(--border-color); z-index: 1;">
+                    </div>
 
-                    <div class="step-item reveal-on-scroll">
-                        <div class="step-number">1</div>
+                    <div class="step-item reveal-on-scroll"
+                        style="flex: 1; text-align: center; position: relative; z-index: 2;">
+                        <div
+                            style="width: 80px; height: 80px; background: var(--color-primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem; font-weight: 700;">
+                            1</div>
                         <h4>Choose a Class</h4>
-                        <p>Select from beginner to advanced sessions.</p>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); padding: 0 10px;">Select from beginner to
+                            advanced sessions.</p>
                     </div>
-                    <div class="step-item reveal-on-scroll">
-                        <div class="step-number">2</div>
+                    <div class="step-item reveal-on-scroll"
+                        style="flex: 1; text-align: center; position: relative; z-index: 2;">
+                        <div
+                            style="width: 80px; height: 80px; background: var(--color-primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem; font-weight: 700;">
+                            2</div>
                         <h4>Get Hands Dirty</h4>
-                        <p>Find your flow on the wheel or slab table.</p>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); padding: 0 10px;">Find your flow on the
+                            wheel or slab table.</p>
                     </div>
-                    <div class="step-item reveal-on-scroll">
-                        <div class="step-number">3</div>
+                    <div class="step-item reveal-on-scroll"
+                        style="flex: 1; text-align: center; position: relative; z-index: 2;">
+                        <div
+                            style="width: 80px; height: 80px; background: var(--color-primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem; font-weight: 700;">
+                            3</div>
                         <h4>Glaze & Fire</h4>
-                        <p>Pick your colors and let the kiln do its magic.</p>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); padding: 0 10px;">Pick your colors and
+                            let the kiln do its magic.</p>
                     </div>
-                    <div class="step-item reveal-on-scroll">
-                        <div class="step-number">4</div>
+                    <div class="step-item reveal-on-scroll"
+                        style="flex: 1; text-align: center; position: relative; z-index: 2;">
+                        <div
+                            style="width: 80px; height: 80px; background: var(--color-primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem; font-weight: 700;">
+                            4</div>
                         <h4>Take Home Art</h4>
-                        <p>Use your own handmade ceramics every day.</p>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); padding: 0 10px;">Use your own handmade
+                            ceramics every day.</p>
                     </div>
                 </div>
             </div>
@@ -142,8 +170,8 @@
 
         <!-- 3D POTTERY SHOWCASE -->
         <section class="showcase-3d" style="padding: 100px 0; background: var(--bg-secondary);">
-            <div class="container rotate-container" style="display: flex; align-items: center; gap: 80px;">
-                <div class="rotate-form" style="flex: 1;">
+            <div class="container showcase-container">
+                <div class="showcase-text">
                     <h2 class="reveal-on-scroll">Rotate the Form</h2>
                     <p style="margin: 25px 0;">Experience the textures and shapes of our signature pieces. Drag to
                         rotate the 3D model.</p>
@@ -153,8 +181,7 @@
                             inspired by traditional Korean ceramics. Fired at Cone 10 for a deep, crackled finish."</p>
                     </div>
                 </div>
-                <div class="rotate-3d"
-                    style="flex: 1.2; height: 500px; background: var(--bg-card); border-radius: 30px; display: flex; align-items: center; justify-content: center; position: relative;">
+                <div class="showcase-visual">
                     <!-- Placeholder for Three.js / CSS 3D -->
                     <div class="pottery-wheel-loader" style="transform: scale(2);">
                         <div class="clay-forming"
@@ -176,7 +203,7 @@
                 <div style="text-align: center; margin-bottom: 60px;">
                     <h2 class="reveal-on-scroll">Explore Workshops</h2>
                 </div>
-                <div class="workshops-grid">
+                <div class="workshop-grid">
                     <div class="card-clay reveal-on-scroll"
                         style="height: 400px; padding: 0; background: url('https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=800') center/cover;">
                         <div
@@ -224,12 +251,13 @@
         </section>
 
         <!-- PRICING CALCULATOR -->
-        <section class="plan-practice-section">
+        <section class="pricing-calc" style="padding: 100px 0;">
             <div class="container">
                 <div class="practice-container">
                     <div class="practice-content">
                         <h2 class="reveal-on-scroll">Plan Your Practice</h2>
-                        <p>Use our interactive calculator to find the best value for your pottery goals.</p>
+                        <p style="margin: 25px 0;">Use our interactive calculator to find the best value for your
+                            pottery goals.</p>
                         <div class="calculator-form">
                             <div class="form-group">
                                 <label>Classes per month</label>
@@ -249,14 +277,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="practice-card">
-                        <h4>Estimated Monthly Cost</h4>
-                        <div class="price-display">$145</div>
-                        <p>Includes 4 sessions + 20 hours access</p>
-                        <div class="savings-badge">
+                    <div class="practice-result">
+                        <h4 style="color: #fff; margin-bottom: 20px;">Estimated Monthly Cost</h4>
+                        <div style="font-size: 4rem; font-weight: 700;">$145</div>
+                        <p style="margin: 20px 0; color: rgba(255,255,255,0.8);">Includes 4 sessions + 20 hours access
+                        </p>
+                        <div
+                            style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 15px; font-weight: 600;">
                             ✨ You save 15% vs. Drop-in rates
                         </div>
-                        <a href="membership.html" class="btn btn-ghost">Get Started</a>
+                        <a href="membership.html" class="btn btn-ghost"
+                            style="border-color: #fff; color: #fff; margin-top: 30px; width: 100%;">Get Started</a>
                     </div>
                 </div>
             </div>
