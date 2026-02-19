@@ -17,6 +17,11 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     <style>
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
         .comparison-table {
             width: 100%;
             border-collapse: collapse;
@@ -56,15 +61,109 @@
         }
 
         @media (max-width: 768px) {
+            .table-responsive {
+                overflow-x: visible;
+                width: 100%;
+                max-width: 100%;
+            }
 
-            .comparison-table th,
+            .comparison-table {
+                display: block;
+                overflow-x: visible;
+                width: 100%;
+                max-width: 100%;
+                min-width: 0;
+            }
+
+            .comparison-table thead {
+                display: none;
+            }
+
+            .comparison-table tbody,
+            .comparison-table tr,
             .comparison-table td {
-                padding: 12px 10px;
+                display: block;
+                width: 100%;
+                max-width: 100%;
+                border: none;
+                min-width: 0;
+            }
+
+            .comparison-table tr {
+                margin-bottom: 20px;
+                border: 2px solid var(--bg-secondary);
+                border-radius: 12px;
+                padding: 15px;
+                background: var(--bg-card);
+                box-shadow: var(--shadow-clay);
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+
+            .comparison-table td {
+                padding: 12px 15px;
+                text-align: left;
+                border-bottom: 1px solid var(--bg-secondary);
+                position: relative;
+                padding-left: 120px;
+                font-size: 0.95rem;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+                min-width: 0;
+            }
+
+            .comparison-table td:last-child {
+                border-bottom: none;
+            }
+
+            .comparison-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 15px;
+                width: 100px;
+                font-weight: 600;
+                color: var(--text-secondary);
+                font-size: 0.85rem;
+                word-wrap: break-word;
+            }
+
+            .comparison-table td:first-child {
+                background: var(--bg-secondary);
+                font-weight: 700;
+                color: var(--text-primary);
+                padding-left: 15px;
+                border-radius: 8px 8px 0 0;
+                margin-bottom: 10px;
+                text-align: center;
+                font-size: 1.1rem;
+            }
+
+            .comparison-table td:first-child::before {
+                display: none;
+            }
+
+            .check-icon,
+            .minus-icon {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .comparison-table td {
+                padding-left: 100px;
                 font-size: 0.9rem;
             }
 
-            .comparison-table th {
-                font-size: 1rem;
+            .comparison-table td::before {
+                width: 80px;
+                font-size: 0.8rem;
+            }
+
+            .comparison-table tr {
+                padding: 12px;
+                margin-bottom: 15px;
             }
         }
     </style>
@@ -104,13 +203,14 @@
                 </ul>
             </nav>
             <div class="nav-actions">
-                <div class="theme-toggle">
-                    <i class="fas fa-moon"></i>
-                </div>
+                
                 <a href="login.html" class="btn btn-ghost desktop-only" style="padding: 10px 24px;">Login</a>
                 <a href="workshop-registration.html" class="btn btn-primary desktop-only"
                     style="padding: 10px 24px;">Book Now</a>
             </div>
+            <div class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </div>
             <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </div>
@@ -132,54 +232,46 @@
                     <table class="comparison-table reveal-on-scroll">
                         <thead>
                             <tr>
-                                <th>Feature</th>
-                                <th>Drop-In</th>
-                                <th>Member</th>
-                                <th>Studio Artist</th>
+                                <th>Membership Type</th>
+                                <th>Monthly Price</th>
+                                <th>Included Classes</th>
+                                <th>Open Studio Access</th>
+                                <th>Personal Shelf</th>
+                                <th>Glaze Discount</th>
+                                <th>Kiln Priority</th>
+                                <th>Tools Library</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Monthly Price</td>
-                                <td>$45 / class</td>
-                                <td>$120 / month</td>
-                                <td>$250 / month</td>
+                                <td data-label="Membership Type">Drop-In</td>
+                                <td data-label="Monthly Price">$45 / class</td>
+                                <td data-label="Included Classes">Pay per class</td>
+                                <td data-label="Open Studio Access"><i class="fas fa-minus minus-icon"></i></td>
+                                <td data-label="Personal Shelf"><i class="fas fa-minus minus-icon"></i></td>
+                                <td data-label="Glaze Discount"><i class="fas fa-minus minus-icon"></i></td>
+                                <td data-label="Kiln Priority"><i class="fas fa-minus minus-icon"></i></td>
+                                <td data-label="Tools Library"><i class="fas fa-check check-icon"></i></td>
                             </tr>
                             <tr>
-                                <td>Included Classes</td>
-                                <td>Pay per class</td>
-                                <td>4 Classes</td>
-                                <td>Unlimited</td>
+                                <td data-label="Membership Type">Member</td>
+                                <td data-label="Monthly Price">$120 / month</td>
+                                <td data-label="Included Classes">4 Classes</td>
+                                <td data-label="Open Studio Access">20 hours / mo</td>
+                                <td data-label="Personal Shelf">Small (6")</td>
+                                <td data-label="Glaze Discount">10% Off</td>
+                                <td data-label="Kiln Priority"><i class="fas fa-minus minus-icon"></i></td>
+                                <td data-label="Tools Library"><i class="fas fa-check check-icon"></i></td>
                             </tr>
                             <tr>
-                                <td>Open Studio Access</td>
-                                <td><i class="fas fa-minus minus-icon"></i></td>
-                                <td>20 hours / mo</td>
-                                <td>24/7 Access</td>
-                            </tr>
-                            <tr>
-                                <td>Personal Shelf</td>
-                                <td><i class="fas fa-minus minus-icon"></i></td>
-                                <td>Small (6")</td>
-                                <td>Large (18")</td>
-                            </tr>
-                            <tr>
-                                <td>Glaze Discount</td>
-                                <td><i class="fas fa-minus minus-icon"></i></td>
-                                <td>10% Off</td>
-                                <td>20% Off</td>
-                            </tr>
-                            <tr>
-                                <td>Kiln Priority</td>
-                                <td><i class="fas fa-minus minus-icon"></i></td>
-                                <td><i class="fas fa-minus minus-icon"></i></td>
-                                <td><i class="fas fa-check check-icon"></i></td>
-                            </tr>
-                            <tr>
-                                <td>Tools Library</td>
-                                <td><i class="fas fa-check check-icon"></i></td>
-                                <td><i class="fas fa-check check-icon"></i></td>
-                                <td><i class="fas fa-check check-icon"></i></td>
+                                <td data-label="Membership Type">Studio Artist</td>
+                                <td data-label="Monthly Price">$250 / month</td>
+                                <td data-label="Included Classes">Unlimited</td>
+                                <td data-label="Open Studio Access">24/7 Access</td>
+                                <td data-label="Personal Shelf">Large (18")</td>
+                                <td data-label="Glaze Discount">20% Off</td>
+                                <td data-label="Kiln Priority"><i class="fas fa-check check-icon"></i></td>
+                                <td data-label="Tools Library"><i class="fas fa-check check-icon"></i></td>
                             </tr>
                         </tbody>
                     </table>
