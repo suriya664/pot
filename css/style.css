@@ -172,7 +172,7 @@ header.scrolled {
 
 .nav-links {
     display: flex;
-    gap: 30px;
+    gap: 15px;
     align-items: center;
 }
 
@@ -314,8 +314,27 @@ footer {
         right: 0;
     }
 
+    /* Hide hamburger when menu is open */
+    .nav-links.active ~ .mobile-menu-btn,
+    .nav-links.active + .mobile-menu-btn,
+    header .nav-links.active ~ .mobile-menu-btn,
+    header .nav-links.active + .mobile-menu-btn {
+        display: none !important;
+    }
+
+    /* Alternative: Hide hamburger when menu is open using body class */
+    body.menu-open .mobile-menu-btn {
+        display: none !important;
+    }
+
+    /* Most specific: Hide hamburger when menu is open */
+    body.menu-open header .mobile-menu-btn,
+    body.menu-open .nav-container .mobile-menu-btn {
+        display: none !important;
+    }
+
     .nav-links li {
-        margin: 15px 0;
+        margin: 8px 0;
     }
 
     .nav-links a {
@@ -383,6 +402,84 @@ footer {
     .calendar-preview .btn {
         margin: 0 auto;
         display: inline-block;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1024px) {
+    .mobile-menu-btn {
+        display: block !important;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text-primary);
+        z-index: 1001;
+        margin-left: 15px;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: var(--bg-card);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: 0.3s ease-in-out;
+        z-index: 999;
+        padding-top: 60px;
+    }
+
+    .close-menu-btn {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        font-size: 2rem;
+        cursor: pointer;
+        color: var(--text-primary);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    /* Hide hamburger when menu is open in this media query too */
+    .nav-links.active ~ .mobile-menu-btn,
+    .nav-links.active + .mobile-menu-btn,
+    header .nav-links.active ~ .mobile-menu-btn,
+    header .nav-links.active + .mobile-menu-btn,
+    body.menu-open .mobile-menu-btn,
+    body.menu-open header .mobile-menu-btn,
+    body.menu-open .nav-container .mobile-menu-btn {
+        display: none !important;
+    }
+
+    .nav-links li {
+        margin: 8px 0;
+    }
+
+    .nav-links a {
+        font-size: 1.2rem;
+    }
+
+    .nav-links .btn {
+        font-size: 1rem;
+        padding: 12px 24px;
+        margin: 10px 0;
+        display: inline-block;
+        width: 80%;
+        text-align: center;
+    }
+
+    /* Show mobile-only elements */
+    .mobile-only {
+        display: block !important;
+    }
+
+    /* Hide desktop nav actions */
+    .nav-actions {
+        display: none;
     }
 }
 
@@ -1037,5 +1134,121 @@ footer {
     .amenities-grid {
         grid-template-columns: 1fr;
         /* 1 column on mobile */
+    }
+}
+
+/* Showcase 3D Section Responsive Styles */
+.showcase-container {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+.showcase-text {
+    flex: 1;
+}
+
+.showcase-visual {
+    flex: 1.2;
+    height: 500px;
+    background: var(--bg-card);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* Move inline visual style here */
+}
+
+@media (max-width: 992px) {
+    .showcase-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .showcase-text,
+    .showcase-visual {
+        width: 100%;
+        flex: none;
+        text-align: center;
+    }
+
+    .showcase-visual {
+        height: 400px;
+        /* Slightly smaller on mobile */
+    }
+}
+
+/* Plan Practice Section Responsive Styles */
+.practice-container {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+}
+
+.practice-content {
+    flex: 1;
+}
+
+.practice-result {
+    flex: 1;
+    background: var(--color-primary);
+    color: #fff;
+    padding: 60px;
+    border-radius: 30px;
+    text-align: center;
+}
+
+@media (max-width: 992px) {
+    .practice-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .practice-content,
+    .practice-result {
+        width: 100%;
+        flex: none;
+    }
+
+    /* Adjust padding on mobile if needed */
+    .practice-result {
+        padding: 40px;
+    }
+}
+
+/* Explore Workshops Grid Responsive Styles */
+.workshop-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+@media (max-width: 992px) {
+    .workshop-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Hero Text Responsive Styles */
+.hero-title {
+    font-size: 4rem;
+    color: #fff;
+    line-height: 1.2;
+}
+
+@media (max-width: 992px) {
+    .hero-content-text {
+        width: 100%;
+        left: 0 !important;
+        bottom: 50% !important;
+        transform: translateY(50%);
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+        /* Reduce size on mobile */
     }
 }
