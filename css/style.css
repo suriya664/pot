@@ -93,6 +93,10 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     font-family: var(--font-body);
     background-color: var(--bg-primary);
@@ -305,6 +309,7 @@ footer {
         /* Ensure close button positioning context */
         padding-top: 60px;
         /* Add padding for close button */
+        display: none;
     }
 
     .close-menu-btn {
@@ -318,13 +323,15 @@ footer {
 
     .nav-links.active {
         right: 0;
+        visibility: visible;
+        display: flex;
     }
 
     /* Hide hamburger when menu is open */
-    .nav-links.active ~ .mobile-menu-btn,
-    .nav-links.active + .mobile-menu-btn,
-    header .nav-links.active ~ .mobile-menu-btn,
-    header .nav-links.active + .mobile-menu-btn {
+    .nav-links.active~.mobile-menu-btn,
+    .nav-links.active+.mobile-menu-btn,
+    header .nav-links.active~.mobile-menu-btn,
+    header .nav-links.active+.mobile-menu-btn {
         display: none !important;
     }
 
@@ -435,6 +442,7 @@ footer {
         transition: 0.3s ease-in-out;
         z-index: 999;
         padding-top: 60px;
+        display: none;
     }
 
     .close-menu-btn {
@@ -448,13 +456,15 @@ footer {
 
     .nav-links.active {
         right: 0;
+        visibility: visible;
+        display: flex;
     }
 
     /* Hide hamburger when menu is open in this media query too */
-    .nav-links.active ~ .mobile-menu-btn,
-    .nav-links.active + .mobile-menu-btn,
-    header .nav-links.active ~ .mobile-menu-btn,
-    header .nav-links.active + .mobile-menu-btn,
+    .nav-links.active~.mobile-menu-btn,
+    .nav-links.active+.mobile-menu-btn,
+    header .nav-links.active~.mobile-menu-btn,
+    header .nav-links.active+.mobile-menu-btn,
     body.menu-open .mobile-menu-btn,
     body.menu-open header .mobile-menu-btn,
     body.menu-open .nav-container .mobile-menu-btn {
